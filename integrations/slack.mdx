@@ -1,0 +1,83 @@
+---
+title: "Slack integration"
+description: "Create and manage bounties directly from Slack"
+---
+
+## Overview
+
+The Slack integration allows you to create, manage, and track bounties without leaving your workspace. Post bounties in channels, receive notifications, and approve submissions—all from Slack.
+
+## Prerequisites
+
+- A bounty.new account
+- Admin access to your Slack workspace
+
+## Installation
+
+<Steps>
+  <Step title="Add bounty.new to Slack">
+    Visit the [bounty.new Slack app](https://bounty.new/integrations/slack) and click **Add to Slack**.
+  </Step>
+  <Step title="Authorize the app">
+    Review the permissions and click **Allow** to authorize bounty.new.
+  </Step>
+  <Step title="Configure your workspace">
+    Select the channels where you want to enable bounty creation and notifications.
+  </Step>
+</Steps>
+
+## Creating bounties from Slack
+
+Use the `/bounty` command to create a new bounty:
+
+```
+/bounty create "Fix login bug" $500
+```
+
+### Command options
+
+- `/bounty create [title] [amount]` - Create a new bounty
+- `/bounty list` - View all active bounties
+- `/bounty status [id]` - Check bounty status
+- `/bounty approve [id]` - Approve a submission
+
+## Notifications
+
+You'll receive Slack notifications for:
+
+- New submissions on your bounties
+- Status updates on bounties you're working on
+- Payment confirmations
+- Comments and questions
+
+<Tip>Configure notification preferences in your bounty.new dashboard under Settings > Integrations > Slack.</Tip>
+
+## Managing bounties
+
+### Viewing submissions
+
+When someone submits work for your bounty, you'll receive a message with:
+- Submission details
+- Quick approve/reject buttons
+- Link to view full submission
+
+### Approving work
+
+Click **Approve** in the notification or use:
+
+```
+/bounty approve [submission-id]
+```
+
+The payout will be processed instantly.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Commands not working">
+    Ensure the bounty.new app is added to the channel. Type `/invite @bounty.new` to add it.
+  </Accordion>
+  <Accordion title="Not receiving notifications">
+    Check your notification settings in the bounty.new dashboard and ensure the app has permission to send messages.
+  </Accordion>
+</AccordionGroup>
