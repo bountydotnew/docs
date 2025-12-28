@@ -62,13 +62,18 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/bountynew",
+      "x": "https://x.com/bountydotnew",
       "github": "https://github.com/bountynew"
     }
   },
   "background": {
     "color": {
       "dark": "#0e0e0e"
-    }
+    },
+    "decoration": "grid",
+    "image": "/logo/bounty.svg"
+  },
+  "appearance": {
+    "strict": true
   }
 }
