@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "willow",
   "name": "bounty.new",
   "colors": {
     "primary": "#191919",
@@ -67,9 +67,10 @@
     "color": {
       "dark": "#0e0e0e"
     },
-    "decoration": "grid"
+    "decoration": "windows"
   },
   "appearance": {
-    "strict": true
+    "strict": true,
+    "default": "dark"
   }
 }
