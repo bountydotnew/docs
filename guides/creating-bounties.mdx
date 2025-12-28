@@ -1,0 +1,218 @@
+---
+title: "Creating bounties"
+description: "Learn how to create and manage bounties on bounty.new"
+---
+
+## Overview
+
+Creating a bounty on bounty.new is simple. Define your challenge, set a reward, and publish it across multiple platforms to reach developers wherever they are.
+
+## Before you start
+
+<Check>Have a clear problem or feature you need built</Check>
+<Check>Determine a fair reward amount</Check>
+<Check>Prepare any necessary documentation or requirements</Check>
+<Check>Fund your bounty.new account</Check>
+
+## Creating your first bounty
+
+<Steps>
+  <Step title="Choose your platform">
+    Create bounties from:
+    - [Slack](/integrations/slack)
+    - [X (Twitter)](/integrations/x)
+    - [Discord](/integrations/discord)
+    - [GitHub](/integrations/github)
+    - bounty.new dashboard
+  </Step>
+  <Step title="Define the bounty">
+    Provide clear details:
+    - **Title**: Short, descriptive name
+    - **Description**: What needs to be built or fixed
+    - **Requirements**: Acceptance criteria
+    - **Reward**: Payment amount in USD
+    - **Deadline**: When you need it completed
+  </Step>
+  <Step title="Review and publish">
+    Double-check all details and click **Publish**. Your bounty goes live immediately.
+  </Step>
+</Steps>
+
+## Bounty details
+
+### Writing a good title
+
+Keep it clear and specific:
+
+<CodeGroup>
+```text Good
+Fix authentication timeout bug in mobile app
+```
+
+```text Bad
+Need help with bug
+```
+</CodeGroup>
+
+### Description best practices
+
+Include:
+- **Problem statement**: What's broken or needed
+- **Context**: Why this matters
+- **Technical details**: Stack, versions, environment
+- **Expected outcome**: What success looks like
+
+Example:
+
+```markdown
+## Problem
+Users are experiencing timeout errors when logging in via mobile app.
+
+## Context
+This affects ~20% of iOS users on version 2.1.0. Error occurs after 
+entering credentials but before reaching the dashboard.
+
+## Technical details
+- iOS app version 2.1.0
+- Backend API: Node.js + Express
+- Auth: JWT tokens with 15min expiry
+
+## Expected outcome
+- Login completes within 3 seconds
+- No timeout errors
+- Existing sessions remain valid
+- Unit tests included
+```
+
+### Setting the right reward
+
+Consider:
+- **Complexity**: How difficult is the task?
+- **Time required**: Hours or days of work?
+- **Urgency**: Need it faster? Pay more.
+- **Market rate**: What do similar bounties pay?
+
+<Tip>Start with $100-$500 for small tasks, $500-$2000 for medium features, and $2000+ for complex projects.</Tip>
+
+## Managing submissions
+
+### Reviewing work
+
+When developers submit solutions:
+
+1. **Test thoroughly**: Verify it meets all requirements
+2. **Check code quality**: Review for best practices
+3. **Ask questions**: Request clarifications if needed
+4. **Provide feedback**: Help them improve if close but not quite there
+
+### Approving submissions
+
+Once satisfied:
+
+- Click **Approve** in the submission
+- Payout processes instantly
+- Developer receives funds immediately
+- Bounty marked as complete
+
+### Rejecting submissions
+
+If work doesn't meet requirements:
+
+- Provide specific feedback
+- Explain what needs to change
+- Give them a chance to revise
+- Be respectful and constructive
+
+## Bounty lifecycle
+
+<Steps>
+  <Step title="Open">
+    Bounty is published and accepting submissions.
+  </Step>
+  <Step title="In progress">
+    A developer has claimed the bounty and is working on it.
+  </Step>
+  <Step title="Under review">
+    Work has been submitted and you're reviewing it.
+  </Step>
+  <Step title="Completed">
+    Submission approved and payout processed.
+  </Step>
+</Steps>
+
+## Tips for success
+
+<CardGroup cols={2}>
+  <Card title="Be responsive" icon="message">
+    Answer questions quickly to keep developers engaged.
+  </Card>
+  <Card title="Set clear deadlines" icon="clock">
+    Give enough time but create urgency.
+  </Card>
+  <Card title="Provide examples" icon="code">
+    Share mockups, specs, or similar implementations.
+  </Card>
+  <Card title="Start small" icon="seedling">
+    Test the platform with smaller bounties first.
+  </Card>
+</CardGroup>
+
+## Advanced options
+
+### Private bounties
+
+Create invite-only bounties for specific developers:
+
+1. Create bounty as normal
+2. Toggle **Private** in settings
+3. Share invite link with selected developers
+
+### Recurring bounties
+
+Set up bounties that repeat:
+
+- Weekly bug fixes
+- Monthly feature additions
+- Ongoing maintenance tasks
+
+Configure in dashboard under **Recurring Bounties**.
+
+### Team bounties
+
+Allow multiple developers to collaborate:
+
+1. Enable **Team Mode** when creating
+2. Set total reward to split
+3. Approve team submission
+4. Payouts split automatically
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="No submissions received">
+    - Increase the reward amount
+    - Clarify requirements
+    - Share on more platforms
+    - Extend the deadline
+  </Accordion>
+  <Accordion title="Low quality submissions">
+    - Add more specific requirements
+    - Include acceptance criteria
+    - Provide examples or specs
+    - Screen developers before approval
+  </Accordion>
+  <Accordion title="Can't approve submission">
+    Ensure your account has sufficient funds. Add funds in Settings > Billing.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Set up integrations" icon="plug" href="/integrations/slack">
+    Connect your favorite platforms.
+  </Card>
+  <Card title="Payment settings" icon="credit-card" href="/guides/payments">
+    Configure payouts and billing.
+  </Card>
+</CardGroup>
