@@ -7,7 +7,7 @@
     "light": "#ffffff",
     "dark": "#2f2e2e"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
     "pages": [
       "introduction"
@@ -32,8 +32,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/bounty.svg",
-    "dark": "/logo/bounty.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [
