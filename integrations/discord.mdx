@@ -1,0 +1,103 @@
+---
+title: "Discord integration"
+description: "Manage bounties in your Discord server"
+---
+
+## Overview
+
+The Discord integration brings bounty.new directly into your server. Create bounties, receive submissions, and manage payouts without leaving Discord.
+
+## Prerequisites
+
+- A bounty.new account
+- Admin or Manage Server permissions in your Discord server
+
+## Installation
+
+<Steps>
+  <Step title="Add the bot to your server">
+    Visit [bounty.new/integrations/discord](https://bounty.new/integrations/discord) and click **Add to Discord**.
+  </Step>
+  <Step title="Select your server">
+    Choose the server where you want to add the bot and authorize it.
+  </Step>
+  <Step title="Configure channels">
+    Use `/bounty setup` to configure which channels can create and view bounties.
+  </Step>
+</Steps>
+
+## Bot commands
+
+### Creating bounties
+
+```
+/bounty create
+```
+
+This opens a form where you can enter:
+- Title
+- Description
+- Reward amount
+- Deadline
+- Required skills
+
+### Managing bounties
+
+```
+/bounty list              # View all active bounties
+/bounty view [id]         # View specific bounty details
+/bounty close [id]        # Close a bounty
+/bounty approve [id]      # Approve a submission
+```
+
+### For developers
+
+```
+/bounty search [keyword]  # Search available bounties
+/bounty submit [id]       # Submit work for a bounty
+/bounty mystatus          # Check your submissions
+```
+
+## Notifications
+
+The bot will post notifications in your configured channel for:
+
+- New bounties created
+- Submissions received
+- Bounties completed
+- Payments processed
+
+<Tip>Create a dedicated `#bounties` channel to keep bounty activity organized.</Tip>
+
+## Permissions
+
+Configure role-based permissions:
+
+- **Create bounties**: Limit to specific roles
+- **Submit work**: Open to all or specific roles
+- **Approve submissions**: Bounty creator or admin roles
+
+Use `/bounty permissions` to configure these settings.
+
+## Embeds and formatting
+
+Bounties are displayed as rich embeds with:
+- Title and description
+- Reward amount (highlighted)
+- Deadline countdown
+- Required skills tags
+- Quick action buttons
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Bot not responding to commands">
+    Ensure the bot has permissions to read messages and send messages in the channel. Check that you're using `/` slash commands, not `!` prefix commands.
+  </Accordion>
+  <Accordion title="Can't create bounties">
+    Verify you have the required role permissions set in `/bounty permissions`.
+  </Accordion>
+  <Accordion title="Notifications not appearing">
+    Run `/bounty setup` again and ensure you've selected a valid notification channel.
+  </Accordion>
+</AccordionGroup>
