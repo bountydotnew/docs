@@ -31,10 +31,7 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/logo/bounty.svg",
   "navbar": {
     "links": [
       {
@@ -70,8 +67,7 @@
     "color": {
       "dark": "#0e0e0e"
     },
-    "decoration": "grid",
-    "image": "/logo/bounty.svg"
+    "decoration": "grid"
   },
   "appearance": {
     "strict": true
