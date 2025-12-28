@@ -1,0 +1,161 @@
+---
+title: "GitHub integration"
+description: "Create bounties from issues and pull requests"
+---
+
+## Overview
+
+The GitHub integration connects your repositories to bounty.new, allowing you to turn issues into bounties and automatically reward contributors when PRs are merged.
+
+## Prerequisites
+
+- A bounty.new account
+- Admin access to your GitHub repository
+
+## Installation
+
+<Steps>
+  <Step title="Install the GitHub app">
+    Visit [bounty.new/integrations/github](https://bounty.new/integrations/github) and click **Install GitHub App**.
+  </Step>
+  <Step title="Select repositories">
+    Choose which repositories you want to connect to bounty.new.
+  </Step>
+  <Step title="Configure settings">
+    Set default bounty amounts and approval rules in your dashboard.
+  </Step>
+</Steps>
+
+## Creating bounties from issues
+
+### Option 1: Add a label
+
+Add the `bounty` label to any issue to automatically create a bounty. Set the amount in the issue description:
+
+```markdown
+## Bounty: $250
+
+Fix the authentication bug described below...
+```
+
+### Option 2: Use a comment
+
+Comment on any issue with:
+
+```
+/bounty $250
+```
+
+The bounty.new bot will create a bounty and link it to the issue.
+
+### Option 3: Create from dashboard
+
+Create a bounty in your dashboard and link it to an existing GitHub issue.
+
+## Automatic payouts
+
+When a PR that closes a bounty issue is merged:
+
+1. The bounty.new bot detects the merge
+2. Verifies the PR author
+3. Processes the payout automatically
+4. Comments on the issue with confirmation
+
+<Tip>Use "Closes #123" or "Fixes #123" in your PR description to link it to the bounty issue.</Tip>
+
+## Bounty status tracking
+
+The bot updates issue comments with bounty status:
+
+- 🎯 **Open**: Bounty is available
+- 👀 **In Progress**: Someone is working on it
+- ✅ **Completed**: PR merged, payout processed
+- ❌ **Closed**: Bounty cancelled
+
+## Configuration options
+
+### Auto-approval
+
+Enable auto-approval for merged PRs:
+
+```yaml
+# .github/bounty.yml
+auto_approve: true
+min_approvals: 2  # Require 2 PR approvals before payout
+```
+
+### Default amounts
+
+Set default bounty amounts by label:
+
+```yaml
+bounty_amounts:
+  bug: 100
+  feature: 500
+  critical: 1000
+```
+
+### Contributor requirements
+
+Require contributors to meet certain criteria:
+
+```yaml
+requirements:
+  min_account_age_days: 30
+  min_contributions: 5
+```
+
+## Managing submissions
+
+### Claiming a bounty
+
+Developers comment on the issue:
+
+```
+/bounty claim
+```
+
+This marks the bounty as "In Progress" and assigns them.
+
+### Submitting work
+
+Create a PR that references the issue:
+
+```markdown
+Fixes #123
+
+Implementation details...
+```
+
+### Reviewing submissions
+
+Review the PR as normal. When merged, the payout is automatic. To manually approve:
+
+```
+/bounty approve @username
+```
+
+## Webhooks
+
+Bounty.new sends webhooks for:
+
+- Bounty created from issue
+- Bounty claimed
+- PR submitted
+- Payout processed
+
+Configure webhook URLs in your dashboard under Settings > Integrations > GitHub > Webhooks.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Bounty not created from issue">
+    Ensure the `bounty` label exists in your repository and the GitHub app is installed with proper permissions.
+  </Accordion>
+  <Accordion title="Payout not processed after merge">
+    Verify the PR description includes "Closes #[issue-number]" and the issue has an active bounty.
+  </Accordion>
+  <Accordion title="Bot not responding to commands">
+    Check that the bounty.new GitHub app has read/write access to issues and pull requests.
+  </Accordion>
+</AccordionGroup>
