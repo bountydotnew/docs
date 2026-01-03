@@ -68,5 +68,16 @@
   "appearance": {
     "strict": true,
     "default": "dark"
+  },
+  "font": {
+    "headings": {
+      "family": "Inter"
+    },
+    "body": {
+      "family": "Inter"
+    },
+    "code": {
+      "family": "monospace"
+    }
   }
 }
