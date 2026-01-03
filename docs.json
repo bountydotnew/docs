@@ -9,12 +9,11 @@
   },
   "favicon": "/favicon.png",
   "navigation": {
-    "pages": [
-      "introduction",
+    "groups": [
       {
         "group": "Get started",
         "pages": [
-          "get-started/introduction",
+          "introduction",
           "guides/creating-bounties",
           "guides/payments"
         ]
