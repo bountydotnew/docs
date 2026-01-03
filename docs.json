@@ -10,12 +10,11 @@
   "favicon": "/favicon.png",
   "navigation": {
     "pages": [
-      "introduction"
-    ],
-    "groups": [
+      "introduction",
       {
-        "group": "Getting started",
+        "group": "Get started",
         "pages": [
+          "get-started/introduction",
           "guides/creating-bounties",
           "guides/payments"
         ]
@@ -23,8 +22,6 @@
       {
         "group": "Integrations",
         "pages": [
-          "integrations/slack",
-          "integrations/x",
           "integrations/discord",
           "integrations/github"
         ]
