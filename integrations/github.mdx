@@ -111,32 +111,81 @@ requirements:
 
 ## Managing submissions
 
-### Claiming a bounty
-
-Developers comment on the issue:
-
-```
-/bounty claim
-```
-
-This marks the bounty as "In Progress" and assigns them.
-
 ### Submitting work
 
-Create a PR that references the issue:
-
-```markdown
-Fixes #123
-
-Implementation details...
-```
-
-### Reviewing submissions
-
-Review the PR as normal. When merged, the payout is automatic. To manually approve:
+Comment on the bounty issue with:
 
 ```
-/bounty approve @username
+/submit 123
+```
+
+Where `123` is your PR number. Alternatively:
+
+```
+@bountydotnew submit 123
+```
+
+Or add `@bountydotnew submit` to your PR description along with `Fixes #issueNumber`.
+
+**Requirements:**
+- PR must exist and be open
+- Bounty must be funded
+- Bounty must be accepting submissions (no approved submission yet)
+
+### Removing a submission
+
+```
+/unsubmit 123
+```
+
+Only the submitter or bounty creator can remove submissions.
+
+### Approving submissions
+
+To approve a submission:
+
+```
+/approve 123
+```
+
+Or:
+
+```
+@bountydotnew approve 123
+```
+
+**Requirements:**
+- Only the bounty creator can approve
+- Solver must have connected their Stripe account for payout
+
+**What happens:**
+- Submission status changes to approved
+- All other pending submissions are rejected
+- Payout is initiated to solver's Stripe Connected Account
+- Bot posts confirmation comment with payout details
+
+<Warning>
+  If the solver hasn't connected Stripe, the bot will reply with instructions to visit https://bounty.new/settings/payments.
+</Warning>
+
+### Managing approvals
+
+Revoke an approval:
+
+```
+/unapprove 123
+```
+
+Switch winner to a different PR:
+
+```
+/reapprove 123
+```
+
+Confirm merge and trigger payout:
+
+```
+/merge 123
 ```
 
 ## Webhooks
