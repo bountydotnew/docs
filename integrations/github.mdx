@@ -28,29 +28,33 @@ The GitHub integration connects your repositories to bounty.new, allowing you to
 
 ## Creating bounties from issues
 
-### Option 1: Add a label
-
-Add the `bounty` label to any issue to automatically create a bounty. Set the amount in the issue description:
-
-```markdown
-## Bounty: $250
-
-Fix the authentication bug described below...
-```
-
-### Option 2: Use a comment
+### Via bot command
 
 Comment on any issue with:
 
 ```
-/bounty $250
+@bountydotnew 100
 ```
 
-The bounty.new bot will create a bounty and link it to the issue.
+Or specify currency explicitly:
 
-### Option 3: Create from dashboard
+```
+@bountydotnew 500 USD
+```
 
-Create a bounty in your dashboard and link it to an existing GitHub issue.
+**Requirements:**
+- Only repo collaborators with write access can create bounties
+- Creates an unfunded bounty linked to the issue
+- Bot replies with a link to complete payment on bounty.new
+- Bounty activates once payment is completed
+
+### Via dashboard
+
+Create a bounty in your dashboard:
+1. Select a repository from your GitHub App installation
+2. Fill out the form with title, description, amount, deadline, and tags
+3. Complete payment via Stripe Checkout
+4. Bot posts a comment on the linked GitHub issue announcing the bounty
 
 ## Automatic payouts
 
@@ -63,97 +67,138 @@ When a PR that closes a bounty issue is merged:
 
 <Tip>Use "Closes #123" or "Fixes #123" in your PR description to link it to the bounty issue.</Tip>
 
+## Bot commands reference
+
+| Command | Description | Who can use |
+|---------|-------------|-------------|
+| `@bountydotnew 100` | Create $100 bounty on issue | Repo collaborators (write access) |
+| `@bountydotnew 500 USD` | Create $500 bounty with explicit currency | Repo collaborators (write access) |
+| `/submit 123` | Submit PR #123 as solution | Anyone |
+| `@bountydotnew submit 123` | Submit PR #123 as solution | Anyone |
+| `/unsubmit 123` | Remove submission for PR #123 | Submitter or bounty creator |
+| `/approve 123` | Approve submission PR #123, trigger payout | Bounty creator only |
+| `/unapprove 123` | Revoke approval for PR #123 | Bounty creator only |
+| `/reapprove 123` | Switch winner to different PR | Bounty creator only |
+| `/merge 123` | Confirm merge and trigger payout | Bounty creator only |
+| `@bountydotnew move #456` | Move bounty to different issue | Bounty creator only |
+
+<Note>
+  All `/slash` commands also work with `@bountydotnew` prefix. PR numbers can optionally include `#` (e.g., `/submit #123` or `/submit 123`).
+</Note>
+
 ## Bounty status tracking
 
 The bot updates issue comments with bounty status:
 
-- 🎯 **Open**: Bounty is available
-- 👀 **In Progress**: Someone is working on it
-- ✅ **Completed**: PR merged, payout processed
-- ❌ **Closed**: Bounty cancelled
+- 🎯 **Open**: Bounty is funded and accepting submissions
+- ✅ **Completed**: Submission approved and payout processed
+- ❌ **Cancelled**: Bounty cancelled and refunded
 
-## Configuration options
+## Connecting GitHub
 
-### Auto-approval
+### Installation flow
 
-Enable auto-approval for merged PRs:
+1. Navigate to **Settings > Integrations** on bounty.new
+2. Click **Connect GitHub**
+3. Select which repositories to grant access
+4. GitHub redirects back to bounty.new
+5. Your installation is now active
 
-```yaml
-# .github/bounty.yml
-auto_approve: true
-min_approvals: 2  # Require 2 PR approvals before payout
-```
+### Managing installations
 
-### Default amounts
-
-Set default bounty amounts by label:
-
-```yaml
-bounty_amounts:
-  bug: 100
-  feature: 500
-  critical: 1000
-```
-
-### Contributor requirements
-
-Require contributors to meet certain criteria:
-
-```yaml
-requirements:
-  min_account_age_days: 30
-  min_contributions: 5
-```
+- **Sync repos**: Fetch latest repository list from GitHub
+- **Modify access**: Redirects to GitHub's installation settings page
+- **Remove**: Remove via GitHub settings (we receive a webhook notification)
 
 ## Managing submissions
 
-### Claiming a bounty
-
-Developers comment on the issue:
-
-```
-/bounty claim
-```
-
-This marks the bounty as "In Progress" and assigns them.
-
 ### Submitting work
 
-Create a PR that references the issue:
-
-```markdown
-Fixes #123
-
-Implementation details...
-```
-
-### Reviewing submissions
-
-Review the PR as normal. When merged, the payout is automatic. To manually approve:
+Comment on the bounty issue with:
 
 ```
-/bounty approve @username
+/submit 123
 ```
 
-## Webhooks
+Where `123` is your PR number. Alternatively:
 
-Bounty.new sends webhooks for:
+```
+@bountydotnew submit 123
+```
 
-- Bounty created from issue
-- Bounty claimed
-- PR submitted
-- Payout processed
+Or add `@bountydotnew submit` to your PR description along with `Fixes #issueNumber`.
 
-Configure webhook URLs in your dashboard under Settings > Integrations > GitHub > Webhooks.
+**Requirements:**
+- PR must exist and be open
+- Bounty must be funded
+- Bounty must be accepting submissions (no approved submission yet)
+
+### Removing a submission
+
+```
+/unsubmit 123
+```
+
+Only the submitter or bounty creator can remove submissions.
+
+### Approving submissions
+
+To approve a submission:
+
+```
+/approve 123
+```
+
+Or:
+
+```
+@bountydotnew approve 123
+```
+
+**Requirements:**
+- Only the bounty creator can approve
+- Solver must have connected their Stripe account for payout
+
+**What happens:**
+- Submission status changes to approved
+- All other pending submissions are rejected
+- Payout is initiated to solver's Stripe Connected Account
+- Bot posts confirmation comment with payout details
+
+<Warning>
+  If the solver hasn't connected Stripe, the bot will reply with instructions to visit https://bounty.new/settings/payments.
+</Warning>
+
+### Managing approvals
+
+Revoke an approval:
+
+```
+/unapprove 123
+```
+
+Switch winner to a different PR:
+
+```
+/reapprove 123
+```
+
+Confirm merge and trigger payout:
+
+```
+/merge 123
+```
+
+
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Bounty not created from issue">
-    Ensure the `bounty` label exists in your repository and the GitHub app is installed with proper permissions.
+    Ensure you have write access to the repository and the GitHub app is installed with proper permissions.
   </Accordion>
-  <Accordion title="Payout not processed after merge">
-    Verify the PR description includes "Closes #[issue-number]" and the issue has an active bounty.
+  <Accordion title="Cannot approve submission">
+    Verify the solver has connected their Stripe account at https://bounty.new/settings/payments.
   </Accordion>
   <Accordion title="Bot not responding to commands">
     Check that the bounty.new GitHub app has read/write access to issues and pull requests.
