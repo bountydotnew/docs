@@ -94,38 +94,21 @@ The bot updates issue comments with bounty status:
 - ✅ **Completed**: Submission approved and payout processed
 - ❌ **Cancelled**: Bounty cancelled and refunded
 
-## Configuration options
+## Connecting GitHub
 
-### Auto-approval
+### Installation flow
 
-Enable auto-approval for merged PRs:
+1. Navigate to **Settings > Integrations** on bounty.new
+2. Click **Connect GitHub**
+3. Select which repositories to grant access
+4. GitHub redirects back to bounty.new
+5. Your installation is now active
 
-```yaml
-# .github/bounty.yml
-auto_approve: true
-min_approvals: 2  # Require 2 PR approvals before payout
-```
+### Managing installations
 
-### Default amounts
-
-Set default bounty amounts by label:
-
-```yaml
-bounty_amounts:
-  bug: 100
-  feature: 500
-  critical: 1000
-```
-
-### Contributor requirements
-
-Require contributors to meet certain criteria:
-
-```yaml
-requirements:
-  min_account_age_days: 30
-  min_contributions: 5
-```
+- **Sync repos**: Fetch latest repository list from GitHub
+- **Modify access**: Redirects to GitHub's installation settings page
+- **Remove**: Remove via GitHub settings (we receive a webhook notification)
 
 ## Managing submissions
 
