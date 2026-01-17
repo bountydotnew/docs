@@ -28,29 +28,33 @@ The GitHub integration connects your repositories to bounty.new, allowing you to
 
 ## Creating bounties from issues
 
-### Option 1: Add a label
-
-Add the `bounty` label to any issue to automatically create a bounty. Set the amount in the issue description:
-
-```markdown
-## Bounty: $250
-
-Fix the authentication bug described below...
-```
-
-### Option 2: Use a comment
+### Via bot command
 
 Comment on any issue with:
 
 ```
-/bounty $250
+@bountydotnew 100
 ```
 
-The bounty.new bot will create a bounty and link it to the issue.
+Or specify currency explicitly:
 
-### Option 3: Create from dashboard
+```
+@bountydotnew 500 USD
+```
 
-Create a bounty in your dashboard and link it to an existing GitHub issue.
+**Requirements:**
+- Only repo collaborators with write access can create bounties
+- Creates an unfunded bounty linked to the issue
+- Bot replies with a link to complete payment on bounty.new
+- Bounty activates once payment is completed
+
+### Via dashboard
+
+Create a bounty in your dashboard:
+1. Select a repository from your GitHub App installation
+2. Fill out the form with title, description, amount, deadline, and tags
+3. Complete payment via Stripe Checkout
+4. Bot posts a comment on the linked GitHub issue announcing the bounty
 
 ## Automatic payouts
 
