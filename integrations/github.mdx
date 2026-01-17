@@ -195,10 +195,10 @@ Confirm merge and trigger payout:
 
 <AccordionGroup>
   <Accordion title="Bounty not created from issue">
-    Ensure the `bounty` label exists in your repository and the GitHub app is installed with proper permissions.
+    Ensure you have write access to the repository and the GitHub app is installed with proper permissions.
   </Accordion>
-  <Accordion title="Payout not processed after merge">
-    Verify the PR description includes "Closes #[issue-number]" and the issue has an active bounty.
+  <Accordion title="Cannot approve submission">
+    Verify the solver has connected their Stripe account at https://bounty.new/settings/payments.
   </Accordion>
   <Accordion title="Bot not responding to commands">
     Check that the bounty.new GitHub app has read/write access to issues and pull requests.
