@@ -1,0 +1,105 @@
+---
+title: "Linear integration"
+description: "Create bounties from Linear issues"
+---
+
+## Overview
+
+The Linear integration allows you to import your Linear workspaces and create bounties directly from Linear issues. Bounties are created as mirrored GitHub issues, enabling the full bounty workflow.
+
+## Prerequisites
+
+- A bounty.new account
+- A Linear workspace
+- A GitHub repository connected to bounty.new (for mirroring issues)
+
+## Installation
+
+<Steps>
+  <Step title="Navigate to integrations">
+    Go to [bounty.new/integrations](https://bounty.new/integrations).
+  </Step>
+  <Step title="Install Linear">
+    Click **Install Linear** and authorize bounty.new to access your Linear workspaces.
+  </Step>
+  <Step title="Sync workspaces">
+    After installation, click **Sync workspaces** to import your Linear data.
+  </Step>
+</Steps>
+
+## Creating bounties from Linear issues
+
+<Steps>
+  <Step title="Navigate to your workspace">
+    Go to the relevant Linear workspace in bounty.new.
+  </Step>
+  <Step title="Find the issue">
+    Locate the Linear issue you want to turn into a bounty.
+  </Step>
+  <Step title="Create bounty">
+    Click **Create bounty** on the issue.
+  </Step>
+  <Step title="Select base repository">
+    Choose a GitHub repository where the mirrored issue will be created. This repository must be connected to bounty.new via the GitHub integration.
+  </Step>
+  <Step title="Set bounty price">
+    Enter the bounty amount in USD.
+  </Step>
+  <Step title="Fund the bounty">
+    The bounty is created as **unfunded**. You must fund it before accepting submissions.
+  </Step>
+</Steps>
+
+<Warning>
+  Bounties created from Linear issues start as unfunded. Make sure to fund the bounty before promoting it, as you cannot pay submissions for unfunded bounties.
+</Warning>
+
+## How it works
+
+1. **Issue mirroring**: When you create a bounty from a Linear issue, bounty.new creates a corresponding GitHub issue in your selected repository
+2. **Bounty creation**: The bounty is linked to the GitHub issue (since bounties function off GitHub issues)
+3. **Submission workflow**: Contributors submit PRs to the GitHub repository using the standard bounty workflow
+4. **Payout**: Once approved and merged, payouts are processed through Stripe
+
+## Managing Linear integration
+
+### Syncing workspaces
+
+To refresh your Linear workspace data:
+
+1. Go to [bounty.new/integrations](https://bounty.new/integrations)
+2. Find the Linear integration
+3. Click **Sync workspaces**
+
+### Disconnecting Linear
+
+To remove the Linear integration:
+
+1. Go to [bounty.new/integrations](https://bounty.new/integrations)
+2. Find the Linear integration
+3. Click **Disconnect**
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Cannot create bounty from Linear issue">
+    Ensure you have at least one GitHub repository connected to bounty.new. The Linear integration requires a GitHub repository to mirror issues.
+  </Accordion>
+  <Accordion title="Workspace not showing up">
+    Click **Sync workspaces** in the Linear integration settings to refresh your workspace list.
+  </Accordion>
+  <Accordion title="Cannot accept submissions">
+    Verify the bounty is funded. Bounties created from Linear issues start as unfunded and must be funded before accepting submissions.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="GitHub integration" icon="github" href="/integrations/github">
+    Learn about the GitHub bounty workflow.
+  </Card>
+  <Card title="Payment settings" icon="credit-card" href="/guides/payments">
+    Configure payouts and billing.
+  </Card>
+</CardGroup>

@@ -73,8 +73,8 @@ When a PR that closes a bounty issue is merged:
 |---------|-------------|-------------|
 | `@bountydotnew 100` | Create $100 bounty on issue | Repo collaborators (write access) |
 | `@bountydotnew 500 USD` | Create $500 bounty with explicit currency | Repo collaborators (write access) |
-| `/submit 123` | Submit PR #123 as solution | Anyone |
-| `@bountydotnew submit 123` | Submit PR #123 as solution | Anyone |
+| `/submit 123` | Submit PR #123 as solution | PR author or maintainers |
+| `@bountydotnew submit 123` | Submit PR #123 as solution | PR author or maintainers |
 | `/unsubmit 123` | Remove submission for PR #123 | Submitter or bounty creator |
 | `/approve 123` | Approve submission PR #123, trigger payout | Bounty creator only |
 | `/unapprove 123` | Revoke approval for PR #123 | Bounty creator only |
@@ -110,28 +110,38 @@ The bot updates issue comments with bounty status:
 - **Modify access**: Redirects to GitHub's installation settings page
 - **Remove**: Remove via GitHub settings (we receive a webhook notification)
 
-## Managing submissions
+## Submission workflow
 
-### Submitting work
+### For contributors (submitting PRs)
 
-Comment on the bounty issue with:
+<Steps>
+  <Step title="Open a PR">
+    Create a pull request that references the bounty issue (e.g., `Fixes #123` in PR description).
+  </Step>
+  <Step title="Submit your PR">
+    Submit using one of these methods:
 
-```
-/submit 123
-```
+    **Option 1**: Add `@bountydotnew submit` to your PR description
 
-Where `123` is your PR number. Alternatively:
-
-```
-@bountydotnew submit 123
-```
-
-Or add `@bountydotnew submit` to your PR description along with `Fixes #issueNumber`.
+    **Option 2**: Comment on the bounty issue:
+    ```
+    /submit 123
+    ```
+    Where `123` is your PR number.
+  </Step>
+  <Step title="Confirmation">
+    The bot posts "Submission Received" comments on both the issue and the PR.
+  </Step>
+  <Step title="Wait for approval">
+    The bounty creator will review your submission.
+  </Step>
+</Steps>
 
 **Requirements:**
 - PR must exist and be open
 - Bounty must be funded
 - Bounty must be accepting submissions (no approved submission yet)
+- PR authors can submit their own PRs; maintainers can submit on behalf of others
 
 ### Removing a submission
 
@@ -141,19 +151,30 @@ Or add `@bountydotnew submit` to your PR description along with `Fixes #issueNum
 
 Only the submitter or bounty creator can remove submissions.
 
-### Approving submissions
+### For bounty creators (approving & paying)
 
-To approve a submission:
-
-```
-/approve 123
-```
-
-Or:
-
-```
-@bountydotnew approve 123
-```
+<Steps>
+  <Step title="Review the PR">
+    Test the submitted pull request thoroughly.
+  </Step>
+  <Step title="Approve the submission">
+    Comment on the bounty issue:
+    ```
+    /approve 123
+    ```
+    Where `123` is the PR number. The bot posts "Submission Approved" on both the issue and PR.
+  </Step>
+  <Step title="Merge the PR">
+    Merge the pull request in GitHub.
+  </Step>
+  <Step title="Confirm merge">
+    Comment on the bounty issue:
+    ```
+    /merge 123
+    ```
+    This triggers the Stripe payout to the solver.
+  </Step>
+</Steps>
 
 **Requirements:**
 - Only the bounty creator can approve
@@ -162,8 +183,8 @@ Or:
 **What happens:**
 - Submission status changes to approved
 - All other pending submissions are rejected
-- Payout is initiated to solver's Stripe Connected Account
-- Bot posts confirmation comment with payout details
+- After `/merge`, payout is initiated to solver's Stripe Connected Account
+- Bot posts confirmation comments with payout details on both issue and PR
 
 <Warning>
   If the solver hasn't connected Stripe, the bot will reply with instructions to visit https://bounty.new/settings/payments.
@@ -181,12 +202,6 @@ Switch winner to a different PR:
 
 ```
 /reapprove 123
-```
-
-Confirm merge and trigger payout:
-
-```
-/merge 123
 ```
 
 
