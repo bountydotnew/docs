@@ -110,28 +110,38 @@ The bot updates issue comments with bounty status:
 - **Modify access**: Redirects to GitHub's installation settings page
 - **Remove**: Remove via GitHub settings (we receive a webhook notification)
 
-## Managing submissions
+## Submission workflow
 
-### Submitting work
+### For contributors (submitting PRs)
 
-Comment on the bounty issue with:
+<Steps>
+  <Step title="Open a PR">
+    Create a pull request that references the bounty issue (e.g., `Fixes #123` in PR description).
+  </Step>
+  <Step title="Submit your PR">
+    Submit using one of these methods:
 
-```
-/submit 123
-```
+    **Option 1**: Add `@bountydotnew submit` to your PR description
 
-Where `123` is your PR number. Alternatively:
-
-```
-@bountydotnew submit 123
-```
-
-Or add `@bountydotnew submit` to your PR description along with `Fixes #issueNumber`.
+    **Option 2**: Comment on the bounty issue:
+    ```
+    /submit 123
+    ```
+    Where `123` is your PR number.
+  </Step>
+  <Step title="Confirmation">
+    The bot posts "Submission Received" comments on both the issue and the PR.
+  </Step>
+  <Step title="Wait for approval">
+    The bounty creator will review your submission.
+  </Step>
+</Steps>
 
 **Requirements:**
 - PR must exist and be open
 - Bounty must be funded
 - Bounty must be accepting submissions (no approved submission yet)
+- PR authors can submit their own PRs; maintainers can submit on behalf of others
 
 ### Removing a submission
 
