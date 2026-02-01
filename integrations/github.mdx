@@ -151,19 +151,30 @@ The bot updates issue comments with bounty status:
 
 Only the submitter or bounty creator can remove submissions.
 
-### Approving submissions
+### For bounty creators (approving & paying)
 
-To approve a submission:
-
-```
-/approve 123
-```
-
-Or:
-
-```
-@bountydotnew approve 123
-```
+<Steps>
+  <Step title="Review the PR">
+    Test the submitted pull request thoroughly.
+  </Step>
+  <Step title="Approve the submission">
+    Comment on the bounty issue:
+    ```
+    /approve 123
+    ```
+    Where `123` is the PR number. The bot posts "Submission Approved" on both the issue and PR.
+  </Step>
+  <Step title="Merge the PR">
+    Merge the pull request in GitHub.
+  </Step>
+  <Step title="Confirm merge">
+    Comment on the bounty issue:
+    ```
+    /merge 123
+    ```
+    This triggers the Stripe payout to the solver.
+  </Step>
+</Steps>
 
 **Requirements:**
 - Only the bounty creator can approve
@@ -172,8 +183,8 @@ Or:
 **What happens:**
 - Submission status changes to approved
 - All other pending submissions are rejected
-- Payout is initiated to solver's Stripe Connected Account
-- Bot posts confirmation comment with payout details
+- After `/merge`, payout is initiated to solver's Stripe Connected Account
+- Bot posts confirmation comments with payout details on both issue and PR
 
 <Warning>
   If the solver hasn't connected Stripe, the bot will reply with instructions to visit https://bounty.new/settings/payments.
@@ -191,12 +202,6 @@ Switch winner to a different PR:
 
 ```
 /reapprove 123
-```
-
-Confirm merge and trigger payout:
-
-```
-/merge 123
 ```
 
 
