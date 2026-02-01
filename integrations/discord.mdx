@@ -44,18 +44,17 @@ This opens a form where you can enter:
 ### Managing bounties
 
 ```
-/bounty list              # View all active bounties
-/bounty view [id]         # View specific bounty details
-/bounty close [id]        # Close a bounty
-/bounty approve [id]      # Approve a submission
+/bounty list [page]                         # View all active bounties
+/bounty view [id]                           # View specific bounty details
+/bounty close [id]                          # Close a bounty (owner only)
+/bounty approve [bounty_id] [submission_id] # Approve a submission (requires both IDs)
 ```
 
-### For developers
+### Account management
 
 ```
-/bounty search [keyword]  # Search available bounties
-/bounty submit [id]       # Submit work for a bounty
-/bounty mystatus          # Check your submissions
+/login   # Link your Discord account to bounty.new
+/logout  # Unlink your Discord account
 ```
 
 ## Notifications
