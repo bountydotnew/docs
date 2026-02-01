@@ -22,7 +22,8 @@
         "group": "Integrations",
         "pages": [
           "integrations/discord",
-          "integrations/github"
+          "integrations/github",
+          "integrations/linear"
         ]
       }
     ]
