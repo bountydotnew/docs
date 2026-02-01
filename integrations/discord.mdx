@@ -44,40 +44,18 @@ This opens a form where you can enter:
 ### Managing bounties
 
 ```
-/bounty list              # View all active bounties
-/bounty view [id]         # View specific bounty details
-/bounty close [id]        # Close a bounty
-/bounty approve [id]      # Approve a submission
+/bounty list [page]                         # View all active bounties
+/bounty view [id]                           # View specific bounty details
+/bounty close [id]                          # Close a bounty (owner only)
+/bounty approve [bounty_id] [submission_id] # Approve a submission (requires both IDs)
 ```
 
-### For developers
+### Account management
 
 ```
-/bounty search [keyword]  # Search available bounties
-/bounty submit [id]       # Submit work for a bounty
-/bounty mystatus          # Check your submissions
+/login   # Link your Discord account to bounty.new
+/logout  # Unlink your Discord account
 ```
-
-## Notifications
-
-The bot will post notifications in your configured channel for:
-
-- New bounties created
-- Submissions received
-- Bounties completed
-- Payments processed
-
-<Tip>Create a dedicated `#bounties` channel to keep bounty activity organized.</Tip>
-
-## Permissions
-
-Configure role-based permissions:
-
-- **Create bounties**: Limit to specific roles
-- **Submit work**: Open to all or specific roles
-- **Approve submissions**: Bounty creator or admin roles
-
-Use `/bounty permissions` to configure these settings.
 
 ## Embeds and formatting
 
@@ -95,9 +73,6 @@ Bounties are displayed as rich embeds with:
     Ensure the bot has permissions to read messages and send messages in the channel. Check that you're using `/` slash commands, not `!` prefix commands.
   </Accordion>
   <Accordion title="Can't create bounties">
-    Verify you have the required role permissions set in `/bounty permissions`.
-  </Accordion>
-  <Accordion title="Notifications not appearing">
-    Run `/bounty setup` again and ensure you've selected a valid notification channel.
+    Ensure you're logged in with `/login` and have connected your bounty.new account.
   </Accordion>
 </AccordionGroup>

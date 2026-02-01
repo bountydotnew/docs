@@ -80,7 +80,7 @@ When a PR that closes a bounty issue is merged:
 | `/unapprove 123` | Revoke approval for PR #123 | Bounty creator only |
 | `/reapprove 123` | Switch winner to different PR | Bounty creator only |
 | `/merge 123` | Confirm merge and trigger payout | Bounty creator only |
-| `@bountydotnew move #456` | Move bounty to different issue | Bounty creator only |
+| `@bountydotnew move 456` | Move bounty to different issue | Bounty creator only |
 
 <Note>
   All `/slash` commands also work with `@bountydotnew` prefix. PR numbers can optionally include `#` (e.g., `/submit #123` or `/submit 123`).
@@ -90,9 +90,9 @@ When a PR that closes a bounty issue is merged:
 
 The bot updates issue comments with bounty status:
 
-- 🎯 **Open**: Bounty is funded and accepting submissions
-- ✅ **Completed**: Submission approved and payout processed
-- ❌ **Cancelled**: Bounty cancelled and refunded
+- **Open**: Bounty is funded and accepting submissions
+- **Completed**: Submission approved and payout processed
+- **Cancelled**: Bounty cancelled and refunded
 
 ## Connecting GitHub
 
