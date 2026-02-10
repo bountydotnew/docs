@@ -9,11 +9,13 @@
   },
   "favicon": "/favicon.png",
   "navigation": {
+    "pages": [
+      "introduction"
+    ],
     "groups": [
       {
-        "group": "Get started",
+        "group": "Guides",
         "pages": [
-          "introduction",
           "guides/creating-bounties",
           "guides/payments"
         ]
@@ -33,7 +35,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@bounty.new"
+        "href": "mailto:grim@bounty.new"
       }
     ],
     "primary": {
