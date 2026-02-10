@@ -10,7 +10,7 @@
   "favicon": "/favicon.png",
   "navigation": {
     "pages": [
-      "introduction"
+      "index"
     ],
     "groups": [
       {
