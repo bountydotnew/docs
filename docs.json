@@ -17,14 +17,13 @@
         "group": "For creators",
         "pages": [
           "guides/creating-bounties",
-          "guides/payments"
+          "guides/funding-bounties"
         ]
       },
       {
         "group": "For developers",
         "pages": [
-          "guides/solving-bounties",
-          "guides/getting-paid"
+          "guides/solving-bounties"
         ]
       },
       {
