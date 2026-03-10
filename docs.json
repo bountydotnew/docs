@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "aspen",
+  "theme": "mint",
   "name": "bounty.new",
   "colors": {
     "primary": "#191919",
@@ -10,9 +10,13 @@
   "favicon": "/favicon.png",
   "navigation": {
     "pages": [
-      "index"
-    ],
-    "groups": [
+      {
+        "group": "Get started",
+        "pages": [
+          "introduction",
+          "guides/creating-bounties"
+        ]
+      },
       {
         "group": "For creators",
         "pages": [
@@ -34,7 +38,8 @@
           "integrations/github",
           "integrations/linear"
         ]
-      }
+      },
+      "introduction"
     ]
   },
   "logo": "/logo/dark.png",
@@ -42,7 +47,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:grim@bounty.new"
+        "href": "mailto:support@bounty.new"
       }
     ],
     "primary": {
@@ -53,20 +58,20 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
       "x": "https://x.com/bountydotnew",
-      "github": "https://github.com/bountydotnew/bounty.new"
+      "github": "https://github.com/bountynew"
     }
   },
   "background": {
@@ -89,5 +94,17 @@
     "code": {
       "family": "monospace"
     }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    }
+  },
+  "styling": {
+    "eyebrows": "section",
+    "codeblocks": "system"
+  },
+  "thumbnails": {
+    "appearance": "dark"
   }
 }
