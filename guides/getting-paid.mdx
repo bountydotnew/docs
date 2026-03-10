@@ -7,22 +7,51 @@ description: "Set up your payout method and receive instant payments for complet
 
 Get paid instantly when your bounty solutions are approved. Here's how to set up payouts and manage your earnings.
 
-## Setting up payouts
+## Setting up payouts with Stripe
 
 <Steps>
-  <Step title="Navigate to payout settings">
-    Go to your organization's settings page at bounty.new/[slug]/settings/payments.
+  <Step title="Navigate to payment settings">
+    Go to bounty.new/settings/payments and click the "Connect with Stripe" button.
+    
+    ![Connect with Stripe button](/images/stripe-connect-button.png)
   </Step>
-  <Step title="Choose payout method">
-    Select your preferred payout method:
-    - ACH bank transfer (US only, 1-2 business days)
-    - Debit card (instant, small fee)
+  
+  <Step title="Select your country">
+    A popup will appear asking where you're based. Select your country so Stripe can provide the proper setup details.
+    
+    ![Country selection popup](/images/stripe-country-select.png)
   </Step>
-  <Step title="Verify your account">
-    Complete identity verification to enable payouts. This is required for compliance.
+  
+  <Step title="Sign into Stripe Express">
+    Enter a new or existing email address to create or access your Stripe Express account.
   </Step>
-  <Step title="Start earning">
-    Once verified, you'll receive instant payouts when bounties are approved.
+  
+  <Step title="Enter phone number">
+    Provide your phone number for account verification.
+    
+    ![Phone number entry](/images/stripe-phone-number.png)
+  </Step>
+  
+  <Step title="Choose business type">
+    Stripe will ask about your business. Most people should choose "Individual" unless you're setting this up for a registered business.
+    
+    ![Business type selection](/images/stripe-business-type.png)
+  </Step>
+  
+  <Step title="Fill out personal details">
+    Complete the personal information form as prompted by Stripe.
+  </Step>
+  
+  <Step title="Describe your business">
+    When asked about your industry and products:
+    - **Industry**: Select "Software"
+    - **Products/Services**: Enter "Solving bounties on bounty.new" (instead of providing a website)
+    
+    This tells Stripe exactly what you're doing and ensures smooth approval.
+  </Step>
+  
+  <Step title="Complete verification">
+    Finish any remaining verification steps. Once approved, you'll receive instant payouts when bounties are approved.
   </Step>
 </Steps>
 
