@@ -1,81 +1,57 @@
 ---
-title: "Payments and payouts"
-description: "How payments work on bounty.new"
+title: "Funding bounties"
+description: "How to fund bounties and manage payments as a creator"
 ---
 
 ## Overview
 
-Bounty.new handles all payment processing so you can focus on getting work done. Instant payouts, transparent fees, and multiple payment methods.
+Fund your bounties with a credit card and let bounty.new handle the rest. When you approve a submission, the developer gets paid instantly—no manual transfers, no hassle.
 
 ## How it works
 
-### For creators
-
 <Steps>
-  <Step title="Create bounties">
-    Funds are held in our platform account when you publish a bounty.
+  <Step title="Create a bounty">
+    Set up your bounty with a clear description and reward amount.
   </Step>
-  <Step title="Approve work">
-    When you approve a submission, the payout processes instantly, and the winning submission gets paid immediately.
+  <Step title="Fund it">
+    Pay upfront with a credit card. Funds are held in escrow.
   </Step>
-</Steps>
-
-### For developers
-
-<Steps>
-  <Step title="Complete work">
-    Submit your solution for a bounty.
+  <Step title="Review submissions">
+    Developers submit solutions. You review and test their work.
   </Step>
-  <Step title="Get approved">
-    Creator reviews and approves your submission.
-  </Step>
-  <Step title="Receive payment">
-    Funds hit your account immediately—no waiting period.
+  <Step title="Approve and pay">
+    When you approve a submission, the developer gets paid instantly.
   </Step>
 </Steps>
 
 ## Payment methods
 
-### Adding funds (creators)
+### Funding bounties
 
 - **Credit card**: Visa, Mastercard, American Express
-- Instant processing
-- 2.9% + \$0.30 processing fee
-
-### Receiving payouts (developers)
-
-Connect your Stripe account at [bounty.new/settings/payments](https://bounty.new/settings/payments) to receive payouts.
-
-- **Stripe Connected Account**: Direct deposit to your bank
-- Instant payout upon approval
-- No fees
+- **Instant processing**: Your bounty goes live immediately
+- **Secure**: All payments processed through Stripe
 
 <Note>
-  You must connect your Stripe account before a bounty creator can approve your submission.
+  Bounties must be funded upfront. This ensures developers get paid immediately when their work is approved.
 </Note>
 
-## Fees
+## Fees and pricing
 
 ### Platform fees
 
-| Role      | Fee | When charged           |
-| --------- | --- | ---------------------- |
-| Creator   | 5%  | When bounty is created |
-| Developer | 0%  | No fees on payouts     |
+| Fee type          | Amount      | When charged           |
+| ----------------- | ----------- | ---------------------- |
+| Platform fee      | 5%          | When bounty is created |
+| Card processing   | 2.9% + $0.30| When bounty is created |
 
 <Tip>
-  Developers keep 100% of the bounty amount. Creators pay a 5% platform fee.
+  Developers receive 100% of the bounty amount. You pay the platform fee and processing fees upfront.
 </Tip>
-
-### Payment processing fees
-
-Additional fees from payment providers:
-
-- **Credit card**: 2.9% + \$0.30
 
 ### Example calculation
 
-For a \$500 bounty:
+For a $500 bounty:
 
 ```
 Bounty amount:        $500.00
@@ -87,36 +63,44 @@ Total charged:        $540.20
 Developer receives:   $500.00
 ```
 
-## Payment security
+## Managing funded bounties
 
-### How payment protection works
+### Approving work
 
-1. **Funds secured**: When you create a bounty, funds are held securely in escrow
-2. **Protected**: Neither party can access funds until work is approved
-3. **Released**: Funds transfer instantly upon approval
-4. **Refunded**: If bounty is cancelled, funds return to creator minus the 5% platform fee
+When you approve a submission:
 
-## Refunds and cancellations
+1. Developer receives the full bounty amount instantly
+2. Bounty is marked as complete
+3. You receive a receipt for your records
 
-### Requesting a refund
+### Cancelling and refunds
 
-To cancel a funded bounty and request a refund:
+#### Unfunded bounties
 
-1. Click **Request cancellation** from the bounty menu
-2. Optionally provide a reason
-3. Support team processes your refund manually
-4. You'll receive the bounty amount minus the 5% platform fee
+Delete them directly—no refund needed since they weren't funded.
+
+#### Funded bounties
+
+To cancel a funded bounty:
+
+<Steps>
+  <Step title="Request cancellation">
+    Click **Request cancellation** from the bounty menu.
+  </Step>
+  <Step title="Provide reason (optional)">
+    Help us understand why you're cancelling.
+  </Step>
+  <Step title="Wait for refund">
+    Our team processes your refund manually.
+  </Step>
+  <Step title="Receive refund">
+    You'll receive the bounty amount minus the 5% platform fee.
+  </Step>
+</Steps>
 
 <Warning>
-  You cannot cancel a bounty that has an approved submission. The solver must be paid. The 5% platform fee is non-refundable.
+  You cannot cancel a bounty that has an approved submission. Once work is approved, the developer must be paid. The 5% platform fee is non-refundable.
 </Warning>
-
-### What happens during cancellation
-
-- All pending submitters receive a notification email
-- Bounty badge changes from "Funded" to "Cancelling"
-- Delete button becomes available while waiting for refund
-- Once refunded, bounty status changes to "Cancelled"
 
 ### Refund calculation
 
@@ -129,38 +113,85 @@ Platform fee (5%):    $ 25.00 (non-refundable)
 Refund amount:        $475.00
 ```
 
+### What happens during cancellation
+
+- All pending submitters receive a notification email
+- Bounty badge changes from "Funded" to "Cancelling"
+- Delete button becomes available while waiting for refund
+- Once refunded, bounty status changes to "Cancelled"
+
+## Payment security
+
+### Escrow protection
+
+1. **Funds secured**: When you fund a bounty, money is held in escrow
+2. **Protected**: Neither party can access funds until work is approved
+3. **Released**: Funds transfer instantly to the developer upon approval
+4. **Refunded**: If cancelled, funds return to you (minus platform fee)
+
 ### Dispute resolution
 
-If there's a disagreement:
+If there's a disagreement with a developer:
 
-1. **Communicate**: Try to resolve directly with the other party
-2. **Request mediation**: Contact [grim@bounty.new](mailto:grim@bounty.new)
-3. **Review process**: Our team reviews the work and requirements
-4. **Decision**: Funds released based on fair assessment
+<Steps>
+  <Step title="Communicate directly">
+    Try to resolve the issue with the developer first.
+  </Step>
+  <Step title="Request mediation">
+    Contact [grim@bounty.new](mailto:grim@bounty.new) for help.
+  </Step>
+  <Step title="Review process">
+    Our team reviews the work and original requirements.
+  </Step>
+  <Step title="Fair decision">
+    Funds are released based on a fair assessment.
+  </Step>
+</Steps>
 
 <Warning>
   Disputes are rare but taken seriously. Provide clear requirements upfront to avoid issues.
 </Warning>
+
+## Best practices
+
+<CardGroup cols={2}>
+  <Card title="Fund before promoting" icon="wallet">
+    Only share your bounty publicly after it's funded. Unfunded bounties can't accept submissions.
+  </Card>
+  <Card title="Set fair rewards" icon="scale">
+    Pay market rates for the work required. Higher rewards attract better developers.
+  </Card>
+  <Card title="Be responsive" icon="bolt">
+    Approve or provide feedback quickly. Developers appreciate fast turnaround.
+  </Card>
+  <Card title="Clear requirements" icon="list-checks">
+    Detailed requirements reduce disputes and lead to better submissions.
+  </Card>
+</CardGroup>
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Payment method declined">
     - Verify card details are correct
-    - Check with your bank for blocks
+    - Check with your bank for blocks or limits
     - Try an alternative payment method
-    - Contact support if issue persists
-  </Accordion>
-  <Accordion title="Payout not received">
-    - Check your payout method is verified
-    - ACH bank transfers take 1-2 business days
-    - Verify bank account details are correct
-    - Contact [grim@bounty.new](mailto:grim@bounty.new) for help
+    - Contact [grim@bounty.new](mailto:grim@bounty.new) if issue persists
   </Accordion>
   <Accordion title="Incorrect amount charged">
-    - Review the fee breakdown in your transaction history
-    - Platform fee (5%) and payment processing fees apply
-    - Contact support if you believe there's an error
+    - Review the fee breakdown: bounty amount + 5% platform fee + card processing
+    - Check your transaction history for details
+    - Contact [grim@bounty.new](mailto:grim@bounty.new) if you believe there's an error
+  </Accordion>
+  <Accordion title="Refund not received">
+    - Refunds are processed manually and may take 3-5 business days
+    - Check that your cancellation request was submitted
+    - Contact [grim@bounty.new](mailto:grim@bounty.new) for status updates
+  </Accordion>
+  <Accordion title="Can't cancel bounty">
+    - Check if there's an approved submission (cannot cancel if approved)
+    - Make sure the bounty is funded (unfunded bounties can be deleted directly)
+    - Contact [grim@bounty.new](mailto:grim@bounty.new) for help
   </Accordion>
 </AccordionGroup>
 
