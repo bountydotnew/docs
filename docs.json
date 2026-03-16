@@ -12,32 +12,19 @@
     "pages": [
       {
         "group": "Get started",
-        "pages": [
-          "introduction",
-          "guides/creating-bounties"
-        ]
+        "pages": ["introduction", "guides/creating-bounties"]
       },
       {
         "group": "For creators",
-        "pages": [
-          "guides/creating-bounties",
-          "guides/funding-bounties"
-        ]
+        "pages": ["guides/creating-bounties", "guides/funding-bounties"]
       },
       {
         "group": "For developers",
-        "pages": [
-          "guides/solving-bounties",
-          "guides/getting-paid"
-        ]
+        "pages": ["guides/solving-bounties", "guides/getting-paid"]
       },
       {
         "group": "Integrations",
-        "pages": [
-          "integrations/discord",
-          "integrations/github",
-          "integrations/linear"
-        ]
+        "pages": ["integrations/github", "integrations/linear"]
       },
       "introduction"
     ]
